@@ -1,0 +1,18 @@
+<h1>Create new release</h1>
+<br/>
+<%= form_for @release do |f| %>
+<div class="row">
+  <div class="form-group col-md-2">
+  	<label>Version no:</label>
+    <%= f.text_field :version,placeholder:"version",required: true,class:"form-control"%>
+  </div>
+</div>
+<div class="row">
+<div class="form-group panel-group" id="item_acc">
+<% @items.each do |item| %>
+	<%= render 'item', item:item %><br/>
+<% end %>
+<%= f.submit %>
+</div>
+</div>
+<% end %>

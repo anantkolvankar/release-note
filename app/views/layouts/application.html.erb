@@ -9,15 +9,8 @@
 <body>
 <%= nav_bar static: :top, brand: "Home", responsive: true do %>
   <% if current_user %>
-	    <%= menu_group do %>        
-	    
-	        <%= drop_down "Products" do %>
-	            <%= menu_item "Things you can't afford", '/home/index' %>
-	            <%= menu_item "Things that won't suit you anyway", '/home/index' %>
-	            <%= menu_item "Things you're not even cool enough to buy anyway", '/home/index' %>        
-	        <% end %>
-	        <%= menu_item "About Us", '/home/index' %>
-	        <%= menu_item "Contact", '/home/index' %>
+	    <%= menu_group do %>        	    
+	        <%= menu_item "New Release", '/releases/new' %>
 	    <% end %>
 	    <%= menu_group pull: :right do %>
 	        

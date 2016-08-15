@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+ .nounderline:hover{ text-decoration: none; }
+ .nounderline:focus{ text-decoration: none; }
