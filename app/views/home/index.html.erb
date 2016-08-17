@@ -1,2 +1,32 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>All releases</h1>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>#</th>
+        <th>Version</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @releases.each.with_index(1) do |release, index| %>
+      <tr>
+      	<td>
+		<%= index %>			
+		</td>
+        <td>
+		<%= release.version %>			
+		</td>
+		<td>
+		<%= release.created_at.strftime('%F %T') %>			
+		</td>
+		<td>
+		<%= link_to 'show',release %>			
+		</td>
+      </tr>
+	<% end %>
+    </tbody>
+  </table>
+  </div>
+

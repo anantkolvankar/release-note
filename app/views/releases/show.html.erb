@@ -1,0 +1,10 @@
+<h2>Release details</h2>
+<h4>Version:- <b><%=@release.version%></b></h4>
+<h5>Date:- <b><%=@release.created_at.strftime('%F %T')%></b></h5>
+
+<h4>Tasks followed for this release:-</h4>
+<ul>
+<% @release.tasks.each do |task| %>
+<li><%= task.name %></li>
+<% end %>
+</ul>

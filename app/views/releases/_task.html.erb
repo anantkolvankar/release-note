@@ -1,0 +1,11 @@
+<div class="panel panel-default" id="panel_<%= task.id %>" >
+<div class="panel-heading">
+  <h4 class="panel-title">
+    <a data-toggle="collapse" data-parent="#item_acc" href="#collapse_<%= task.id %>" class="nounderline" data-parent="#task-acc"><%= task.name %></a>
+  </h4>
+</div>
+<div id="collapse_<%= task.id %>" class="panel-collapse collapse">
+  <div class="panel-body"><%= task.description %></div>
+  <div class="panel-footer">Done <%= check_box_tag 'release[task_ids][]', task.id, nil, :class=> 'task'%></div>
+</div>
+</div>

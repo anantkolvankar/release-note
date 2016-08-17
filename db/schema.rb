@@ -13,22 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20160810124439) do
 
-  create_table "items", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "release_items", force: :cascade do |t|
-    t.integer  "item_id"
+  create_table "release_tasks", force: :cascade do |t|
+    t.integer  "task_id"
     t.integer  "release_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "release_items", ["item_id"], name: "index_release_items_on_item_id"
-  add_index "release_items", ["release_id"], name: "index_release_items_on_release_id"
+  add_index "release_tasks", ["release_id"], name: "index_release_tasks_on_release_id"
+  add_index "release_tasks", ["task_id"], name: "index_release_tasks_on_task_id"
 
   create_table "releases", force: :cascade do |t|
     t.integer  "version"
@@ -38,6 +31,14 @@ ActiveRecord::Schema.define(version: 20160810124439) do
   end
 
   add_index "releases", ["user_id"], name: "index_releases_on_user_id"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "order"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

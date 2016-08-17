@@ -2,17 +2,33 @@
 <br/>
 <%= form_for @release do |f| %>
 <div class="row">
+		<% if @release.errors.any? %>
+			<div class="alert alert-danger" id="error_explanation">
+			  <h2><%= pluralize(@release.errors.count, "error") %> prohibited this release from being saved:</h2>
+
+			  <ul>
+			    <% @release.errors.full_messages.each do |message| %>
+			    <li><%= message %></li>
+			    <% end %>
+			  </ul>
+			</div>
+		<% end %>
   <div class="form-group col-md-2">
-  	<label>Version no:</label>
+  	<h4>Version no:</h4>
     <%= f.text_field :version,placeholder:"version",required: true,class:"form-control"%>
   </div>
 </div>
-<div class="row">
-<div class="form-group panel-group" id="item_acc">
-<% @items.each do |item| %>
-	<%= render 'item', item:item %><br/>
+<div class="row col-md-12">
+<h4>Release tasks:-</h4>
+<div class="alert alert-info">
+  For creating a release you will have to complete all below tasks.<br/><strong>Click on each task</strong>, complete the task describe inside the panel then check the checkbox next to <strong>"Done"</strong>.<br>
+  You should see task in <strong>green</strong> once you mark it as done.
+</div>
+<div class="form-group panel-group" id="task_acc">
+<% @tasks.each do |task| %>
+	<%= render 'task', task:task %><br/>
 <% end %>
-<%= f.submit %>
+<%= f.submit 'Create Release', :class => 'btn btn-primary'%>
 </div>
 </div>
 <% end %>

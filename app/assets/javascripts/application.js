@@ -13,11 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require_tree .
 
 $( document ).ready(function() {
-    $('.item').click(function(argument) {
+    $('.task').click(function(argument) {
     	$('#panel_'+this.value).toggleClass('panel-success');
     });
 });
